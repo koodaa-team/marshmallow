@@ -114,6 +114,7 @@ class Marshaller(ErrorStore):
         """
         print("Comes to serialize " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         if many and obj is not None:
+            print("_pending: " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
             self._pending = True
             ret = [self.serialize(d, fields_dict, many=False,
                                     dict_class=dict_class, accessor=accessor,
@@ -129,6 +130,7 @@ class Marshaller(ErrorStore):
                 )
             return ret
         items = []
+        print("iteritems: " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         for attr_name, field_obj in iteritems(fields_dict):
             if getattr(field_obj, 'load_only', False):
                 continue
@@ -146,6 +148,7 @@ class Marshaller(ErrorStore):
             if value is missing:
                 continue
             items.append((key, value))
+        print("end iteritems: " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         ret = dict_class(items)
         if self.errors and not self._pending:
             raise ValidationError(
