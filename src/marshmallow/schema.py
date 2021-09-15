@@ -521,7 +521,6 @@ class BaseSchema(base.SchemaABC):
                     index_errors=self.opts.index_errors,
                     **kwargs
                 )
-                print("ENd Late here in dump" + datetime.now().strftime("%H:%M:%S"))
             except ValidationError as error:
                 errors = marshal.errors
                 preresult = error.data

@@ -87,10 +87,10 @@ class Marshaller(ErrorStore):
         serialized field names.
     """
     def __init__(self, prefix=''):
-        print("Comes to init "+ datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        print("Comes to init " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         self.prefix = prefix
         ErrorStore.__init__(self)
-        print("Comes to init 2 "+ datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        print("Comes to init 2 " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 
     def serialize(self, obj, fields_dict, many=False,
                   accessor=None, dict_class=dict, index_errors=True, index=None):
@@ -112,7 +112,7 @@ class Marshaller(ErrorStore):
         .. versionchanged:: 1.0.0
             Renamed from ``marshal``.
         """
-        print("Comes to serialize "+ datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        print("Comes to serialize " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         if many and obj is not None:
             self._pending = True
             ret = [self.serialize(d, fields_dict, many=False,
@@ -154,7 +154,7 @@ class Marshaller(ErrorStore):
                 fields=self.error_fields,
                 data=ret
             )
-        print("End Comes to serialize "+ datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        print("End Comes to serialize " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         return ret
 
     # Make an instance callable
